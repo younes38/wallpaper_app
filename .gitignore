@@ -40,5 +40,5 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
-android
-ios
+Android/
+ios/
