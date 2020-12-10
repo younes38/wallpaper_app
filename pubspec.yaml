@@ -28,10 +28,14 @@ dependencies:
   dio: ^3.0.10
   http: ^0.12.2
   flutter_bloc: ^6.1.1
+  path_provider: ^1.6.24
+  hive: ^1.4.4+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  hive_generator: ^0.8.2
+  build_runner:
 # For inform  ation on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

@@ -1,11 +1,13 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:hive/hive.dart';
 import 'package:wallpaper_app/blocs/photo-evet.dart';
 import 'package:wallpaper_app/blocs/photo-state.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallpaper_app/models/Category.dart';
 import 'package:wallpaper_app/models/Photo.dart';
+import 'package:wallpaper_app/services/HiveDatabase.dart';
 
 import '../gobal.dart';
 
@@ -55,6 +57,11 @@ class PhotoBloc extends Bloc<PhotoEvent, PhotoState> {
       List<Photo> photos = parsedJson["photos"].map<Photo>((photo) {
         return Photo.fromJSON(photo);
       }).toList();
+      photos.forEach((element) {
+        int indexPhoto = HiveDatabase.getFavorite()
+            .indexWhere((photo) => photo.id == element.id);
+        if (indexPhoto >= 0) element.liked = true;
+      });
       // TestData.addPhotos(photos);
       yield GetNewPhotosState(
         photos: photos,
@@ -79,6 +86,11 @@ class PhotoBloc extends Bloc<PhotoEvent, PhotoState> {
         List<Photo> photos = parsedJson["photos"].map<Photo>((photo) {
           return Photo.fromJSON(photo);
         }).toList();
+        photos.forEach((element) {
+          int indexPhoto = HiveDatabase.getFavorite()
+              .indexWhere((photo) => photo.id == element.id);
+          if (indexPhoto >= 0) element.liked = true;
+        });
         // TestData.addPhotos(photos);
         yield GetNewPhotosState(
           photos: currentState.photos + photos,

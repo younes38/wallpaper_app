@@ -1,9 +1,28 @@
+import 'package:hive/hive.dart';
+
 import 'Src.dart';
 
+part 'Photo.g.dart';
+
+@HiveType(typeId: 1)
 class Photo {
-  int id, height, width, photographerId;
-  String url, photographer, photographerUrl;
+  @HiveField(0)
+  int id;
+  @HiveField(1)
+  int height;
+  @HiveField(2)
+  int width;
+  @HiveField(3)
+  int photographerId;
+  @HiveField(4)
+  String url;
+  @HiveField(5)
+  String photographer;
+  @HiveField(6)
+  String photographerUrl;
+  @HiveField(7)
   bool liked = false;
+  @HiveField(8)
   Src src;
 
   Photo({

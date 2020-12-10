@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:hive/hive.dart';
 import 'package:wallpaper_app/blocs/favorite-event.dart';
 import 'package:wallpaper_app/blocs/favorite-state.dart';
 import 'package:wallpaper_app/models/Photo.dart';

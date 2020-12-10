@@ -1,7 +1,25 @@
-import 'package:flutter/cupertino.dart';
+import 'package:hive/hive.dart';
 
+part 'Src.g.dart';
+
+@HiveType(typeId: 0)
 class Src {
-  String original, large, large2x, medium, small, portrait, landscape, tiny;
+  @HiveField(0)
+  String original;
+  @HiveField(1)
+  String large;
+  @HiveField(2)
+  String large2x;
+  @HiveField(3)
+  String medium;
+  @HiveField(4)
+  String small;
+  @HiveField(5)
+  String portrait;
+  @HiveField(6)
+  String landscape;
+  @HiveField(7)
+  String tiny;
   Src({
     this.original,
     this.landscape,
